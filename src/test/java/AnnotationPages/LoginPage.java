@@ -20,6 +20,9 @@ public class LoginPage extends BaseTest {
     @FindBy(id = "submit")
     public WebElement submitButton;
 
+    @FindBy(id = "error")
+    public WebElement errorMessage;
+
 
 
     public void inputUsername(String username){
@@ -32,5 +35,8 @@ public class LoginPage extends BaseTest {
     }
     public void clickOnSubmitButton(){
         submitButton.click();
+    }
+    public String errorText(){
+        return errorMessage.getText();
     }
 }
