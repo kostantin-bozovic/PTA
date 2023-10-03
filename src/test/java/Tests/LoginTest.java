@@ -11,7 +11,6 @@ public class LoginTest extends BaseTest {
     public void pageSetUp(){
         driver.navigate().to("https://practicetestautomation.com/");
     }
-
     @Test
     public void verifyThatUserCanLogIn(){
         homePage.clickOnPracticeButton();
