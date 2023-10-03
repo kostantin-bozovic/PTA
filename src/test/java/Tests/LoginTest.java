@@ -37,8 +37,31 @@ public class LoginTest extends BaseTest {
         String expectedErrorMessage = "Your username is invalid!";
         String actualErrorMessage = loginPage.errorText();
 
+        // Error message check
         Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
+
+        // url check
+        String expectedURL = "https://practicetestautomation.com/practice-test-login/";
+        Assert.assertEquals(driver.getCurrentUrl(), expectedURL);
     }
 
+    @Test
+    public void verifyThatUserCannotLoginWithInvalidPassword(){
+        homePage.clickOnPracticeButton();
+        practicePage.clickOnLoginPageButton();
 
+        loginPage.inputUsername("student");
+        loginPage.inputPassword("incorrectPassword"); // invalid password
+        loginPage.clickOnLogInButton();
+
+        String expectedErrorMessage = "Your password is invalid!";
+        String actualErrorMessage = loginPage.errorText();
+
+        // Error message check
+        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
+
+        // url check
+        String expectedURL = "https://practicetestautomation.com/practice-test-login/";
+        Assert.assertEquals(driver.getCurrentUrl(), expectedURL);
+    }
 }
