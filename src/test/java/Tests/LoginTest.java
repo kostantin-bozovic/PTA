@@ -2,6 +2,7 @@ package Tests;
 
 import Base.BaseTest;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -62,5 +63,10 @@ public class LoginTest extends BaseTest {
         // url check
         String expectedURL = "https://practicetestautomation.com/practice-test-login/";
         Assert.assertEquals(driver.getCurrentUrl(), expectedURL);
+    }
+
+    @AfterClass
+    public void tearDown() {
+        driver.quit();
     }
 }
