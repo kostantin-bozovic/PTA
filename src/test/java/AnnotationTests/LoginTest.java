@@ -3,17 +3,20 @@ package AnnotationTests;
 import AnnotationBase.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
+    private static final String URL = "https://practicetestautomation.com/";
+
     @BeforeMethod
     public void pageSetUp(){
-        driver.navigate().to("https://practicetestautomation.com/");
+        driver.navigate().to(URL);
     }
 
-    @Test
+    @Test()
     public void verifyThatUserCanLogIn(){
 
         homePage.clickOnPracticeButton();
@@ -27,7 +30,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(profilePage.message.isDisplayed());
     }
 
-    @Test
+    @Test()
     public void verifyThatUserCannotLoginWithInvalidUsername(){
 
         homePage.clickOnPracticeButton();
@@ -48,7 +51,7 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), expectedURL);
     }
 
-    @Test
+    @Test()
     public void verifyThatUserCannotLoginWithInvalidPassword(){
         homePage.clickOnPracticeButton();
         practicePage.clickOnTestLoginPageButton();
@@ -66,6 +69,11 @@ public class LoginTest extends BaseTest {
         // url check
         String expectedURL = "https://practicetestautomation.com/practice-test-login/";
         Assert.assertEquals(driver.getCurrentUrl(), expectedURL);
+    }
+
+    @AfterMethod
+    public void pageSetDown(){
+        driver.navigate().to(URL);
     }
 
     @AfterClass
