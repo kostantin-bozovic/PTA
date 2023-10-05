@@ -12,7 +12,7 @@
 </ul>
   </li>
   <li>
-<h3> Test cases done with annotations: </h3>
+<h3> Test cases done with @FindBy: </h3>
 <ul>
   <li>Positive LogIn test</li>
   <li>Negative username test</li>
